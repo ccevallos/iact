@@ -1,0 +1,7 @@
+rFor = RandomForestRegressor(criterion='mse', max_depth=5,random_state=1234,n_estimators=50)
+rFor = rFor.fit(X_train,y_train)
+y_pred = rFor.predict(X_test)
+resultados.append(y_pred)
+algoritmos.append('Random Forest')
+
+evolucion_random_forest(15, 50, X_train, y_train, y_test)

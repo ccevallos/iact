@@ -1,0 +1,59 @@
+def dibuja_linea (datos, titulo, etiqueta_x='medida_x', etiqueta_y='medida_y', leyendas=None):
+    '''
+       Funcion que dibuja una serie de datos
+    '''
+    X=np.linspace(1, len(datos[0]), len(datos[0]), endpoint=True)
+    
+    fig, ax = pl.subplots()
+    
+    for cont in range(0,len(datos)):
+        if leyendas is not None:
+            ax.plot(X, datos[cont],label=leyendas[cont])
+        else:
+            ax.plot(X, datos[cont])
+    ax.set_title(titulo)
+    ax.set(xlabel=etiqueta_x, ylabel=etiqueta_y)
+    
+        
+    if leyendas is not None:
+        ax.legend()
+    pl.show()
+
+def normalizar_por_mayor(datos):
+  for col in datos.columns:
+    max_val=round(datos[col].max()+0.05,1)
+    datos[col]=datos[col]/max_val
+
+def evalua_regresion(y_test, y_pred, imprimir=False):
+    mse = skm.mean_squared_error(y_test, y_pred)
+    mae = skm.mean_absolute_error(y_test, y_pred)
+    rmse = mse ** 0.5
+    if imprimir:
+        print('Error cuadrado medio',mse)
+        print('Raíz del error cuadrado medio',rmse)
+        print('Error absoluto medio',mae)
+    return mse, rmse, mae
+
+def evalua (y_test, y_pred, resultados, algoritmos):
+    df = pd.DataFrame({'metrica':['Error Cuadratico Medio (MSE)','Raiz MSE','Error Absoluto Medio (MAE)']})
+    for algoritmo,y_pred in zip(algoritmos,resultados):
+        df[algoritmo]=evalua_regresion(y_test, y_pred)
+    
+    df=df.set_index('metrica')
+    return df
+
+def evolucion_random_forest(profundidad, n_estimadores, X_train, y_train,y_test):
+    arreglo_mse=np.zeros(profundidad)
+
+    for i in range (profundidad):
+        arbol = RandomForestRegressor(max_depth=i+1,random_state=1234,n_estimators=n_estimadores)
+        arbol = arbol.fit(X_train,y_train)
+        y_pred = arbol.predict(X_test)
+        arreglo_mse[i] = skm.mean_squared_error(y_test, y_pred)
+    dibuja_linea([arreglo_mse], 'Evolucion RandomForest en profundidad', etiqueta_x='profundidad', etiqueta_y='Error MSE',)
+
+def normalizar_por_mayor(datos):
+  for col in datos.columns:
+    max_val=round(datos[col].max()+0.05,1)
+    datos[col]=datos[col]/max_val
+    print('Se normalizó la columna',col,'dividiendo para',max_val)

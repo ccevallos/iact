@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Carga de demanda</title>
+</head>
+
+
+<body>
+
+<div class="container-fluid">
+	<div class="row" style="background-color:green">
+		<div class="col-12 titulo">
+		c
+		</div>
+	</div>
+	<div class="row">
+		<div class="d-inline-block col-lg-3 col-md-4 col-sm-12" style="height:100px;background-color:blue">
+		
+		menu
+		
+		</div>
+			<div class="d-inline-block col-4">
+		<div class="texto_seccion">Carga de archivos de datos</div>
+		<form id="fileUpload" action="CargaArchivo.jsx" class="dropzone">
+			<input type="hidden" name="tipo" value="<%=ec.iacm.util.Parametros.DEMANDA%>" />
+			<div class="fallback">
+				<input name="file" type="file" multiple />
+			</div>
+		</form>
+
+		<input type="button" value="Cargar archivos"
+			onclick="fileUpload.dropzone.processQueue()" />
+	</div>
+
+	
+	<div class="d-inline-block col-4" >
+		<div class="texto_seccion">Obtención de datos desde la Base de Datos</div>
+	    <form method="post" action="DemandaBDD.jsx">
+	    	<div>
+	        <textarea name="sql" rows="4" style="width:100%"></textarea>
+	        </div>
+	        <input type="submit" value="Obtener datos"/>
+	    </form>
+		
+		
+		
+		</div>
+	</div>
+</div>	
+</body>
+</html>
+

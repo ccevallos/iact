@@ -1,0 +1,221 @@
+.logo {
+	vertical-align: middle;
+}
+
+.espacio_seccion {
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.titulo {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: inline;
+}
+
+.texto-titulo {
+	padding-left: 15px;
+	text-shadow: 2px 2px #EFEFEF;
+	color: #5F5F5F;
+	font-family: "Aclonica";
+	font-weight: normal;
+	font-size: 26px;
+	vertical-align: middle;
+}
+
+.texto-logo {
+	padding-left: 15px;
+	text-shadow: 2px 2px #EFEFEF;
+	color: #01579B;
+	font-family: "Aclonica";
+	font-weight: normal;
+	font-size: 64px;
+	vertical-align: middle;
+}
+.enlinea {
+	display: inline;
+}
+
+.espaciado>div[class^="col-"] {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.caso {
+	padding: 10px;
+	margin-bottom: 10px;
+	color: #03A9F4;
+	border-color: #01579B;
+  	border-width: 2px;
+  	border-style: solid;	
+	
+	width: 100%;
+	border-radius: 5px;
+	font-weight: normal;
+	font-family: "Aclonica";
+	font-size: 18px;
+}
+
+.demanda, a.demanda:link, a.demanda:visited, a.demanda:hover{
+	color: green;
+}
+
+.metrica{
+	color: #01579B;
+}
+
+.titulo-pantalla {
+	padding: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	background-color: #03A9F4;
+	width: 100%;
+	border-radius: 5px;
+	font-weight: normal;
+	font-family: "Aclonica";
+	font-size: 18px;
+}
+
+.barra {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+
+button {
+	border-radius: 5px;
+	background-color: #03A9F4;
+	color: #fff;
+	padding: 3px 8px 3px 8px;
+	min-width: 60px;
+	border: none;
+}
+
+button:hover {
+	opacity: 0.8
+}
+
+input {
+	margin: 4px 0;
+}
+
+table {
+	margin-left: 10px;
+	min-width: 200px;
+
+}
+
+.clicable:hover {
+	color: #01579B; /* Dark grey background on mouse-over */
+	cursor: pointer;
+}
+
+.texto_seccion {
+	color:#01579B;
+	font-weight: bold;
+	margin-bottom: 3px;
+	padding-bottom: 3px;
+}
+
+.cabecera {
+	background-color: #01579B;
+	color:#fff;
+	text-align:center;
+}
+
+.centrar {
+	text-align:center;
+}
+
+.rojo {
+	color:red;
+}
+
+
+.lista:nth-child(odd) {
+	background: #E4F2F8;
+}
+
+.lista:nth-child(even) {
+	background: white;
+}
+
+.material-icons {
+	vertical-align: middle;
+}
+
+
+
+.vertical-menu {
+	width: 100%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+	background-color: #eee; /* Grey background color */
+	color: black; /* Black text color */
+	display: block; /* Make the links appear below each other */
+	padding: 12px; /* Add some padding */
+	text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+	background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+	background-color: #01579B;
+	/* Add a green color to the "active/current" link */
+	color: white;
+}
+
+/*Inicio estilos extraidos de: https://gist.github.com/jgornick/583482*/
+.info {
+	padding: 5px;
+	border: 1px solid #DEDEDE;
+	margin: 5px 0;
+	background: #EFEFEF;
+	color: #222222;
+	text-align: center;
+}
+
+.warning {
+	padding: 5px;
+	border: 1px solid #FFDE09;
+	margin: 5px 0;
+	background: #FFFFCC;
+	color: #222222;
+	text-align: center;
+}
+
+.success {
+	padding: 5px;
+	border: 1px solid #349534;
+	margin: 5px 0;
+	background: #C9FFCA;
+	color: #008000;
+	font-weight: bold;
+	text-align: center;
+}
+
+.error {
+	padding: 5px;
+	border: 1px solid #CC0000;
+	margin: 5px 0;
+	background: #F7CBCA;
+	color: #CC0000;
+	font-weight: bold;
+	text-align: center;
+}
+/*Fin estilos extraidos de: https://gist.github.com/jgornick/583482*/
+
+/*https://programacion.net/articulo/mostrar_la_tipica_imagen_de_carga_cuando_cargue_la_pagina_utilizando_jquery_y_css_1728*/
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../img/procesando.gif') 50% 50% no-repeat rgb(249,249,249);
+    opacity: .8;
+}

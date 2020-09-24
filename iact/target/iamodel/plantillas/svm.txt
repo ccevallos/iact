@@ -1,0 +1,5 @@
+regr = SVR(kernel='rbf', C=0.8, gamma='scale', epsilon=0.1)
+regr.fit(X, y)
+y_pred=regr.predict(X_test)
+resultados.append(y_pred)
+algoritmos.append('Maquinas de Vector de Soporte')

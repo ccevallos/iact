@@ -1,0 +1,14 @@
+modelo = Sequential()
+modelo.add(Dense(12, kernel_initializer='glorot_uniform', activation='relu', input_shape=(${dimensionEntrada},)))
+modelo.add(Dense(12, kernel_initializer='glorot_uniform', activation='relu'))
+modelo.add(Dense(1))
+
+modelo.compile(loss='mse', optimizer=Adam(), metrics=['mse'])
+modelo.summary()
+historial=modelo.fit(X_train, y_train, epochs=20, batch_size=6, verbose=1, validation_split=0.2)
+
+y_pred=modelo.predict(X_test)
+resultados.append(y_pred)
+algoritmos.append('Red Neuronal')
+
+dibuja_linea([historial.history['mse'],historial.history['val_mse']], 'Red Neuronal - MSE por época', etiqueta_x='época', etiqueta_y='Error MSE', leyendas=['mse', 'val_mse'])
