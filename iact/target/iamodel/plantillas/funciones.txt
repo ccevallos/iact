@@ -27,11 +27,11 @@ def dibuja_linea (datos, titulo, etiqueta_x='medida_x', etiqueta_y='medida_y', l
 
 def evalua_regresion(y_test, y_pred, imprimir=False):
     '''
-    	Función que calcula las métricas de calidad mse, rmse y mae
-    	Parámetros:
-    	  - y_test: datos reales esperados
-    	  - y_pred: datos predichos
-    	  - imprimir: bandera que indica si imprime o no los valores calculados
+        Función que calcula las métricas de calidad mse, rmse y mae
+        Parámetros:
+          - y_test: datos reales esperados
+          - y_pred: datos predichos
+          - imprimir: bandera que indica si imprime o no los valores calculados
     '''
     mse = skm.mean_squared_error(y_test, y_pred)
     mae = skm.mean_absolute_error(y_test, y_pred)
@@ -44,14 +44,14 @@ def evalua_regresion(y_test, y_pred, imprimir=False):
 
 def evalua (y_test, resultados, algoritmos):
     '''
-    	Función que calcula las métricas de calidad mse, rmse y mae de
-    	varios algoritmos. Arma un DataFrame pandas que compara los
-    	resultados.
-    	Parámetros:
-    	  - y_test: datos reales esperados
-    	  - resultados: matriz que contiene los vectores de resultados
-    	                predichos por cada algoritmo
-    	  - algoritmos: nombres de los algoritmos evaluados
+        Función que calcula las métricas de calidad mse, rmse y mae de
+        varios algoritmos. Arma un DataFrame pandas que compara los
+        resultados.
+        Parámetros:
+          - y_test: datos reales esperados
+          - resultados: matriz que contiene los vectores de resultados
+                        predichos por cada algoritmo
+          - algoritmos: nombres de los algoritmos evaluados
     '''
     df = pd.DataFrame({'metrica':['Error Cuadratico Medio (MSE)','Raiz MSE','Error Absoluto Medio (MAE)']})
     for algoritmo,y_pred in zip(algoritmos,resultados):
@@ -62,15 +62,15 @@ def evalua (y_test, resultados, algoritmos):
 
 def evolucion_random_forest(profundidad, n_estimadores, X_train, y_train, X_test, y_test):
     '''
-    	Función que presenta gráficamente la evolución del mse para
-    	Fandom Forest en función de su profundidad.
-    	Parámetros:
-    	  - profundidad:   profundidad máxima de Random Forest.
-    	  - n_estimadores: número de arboles a utilizar
-    	  - X_train:       datos X de entrenamiento.
-    	  - y_train:       datos y de entrenamiento.
-    	  - X_test:        datos X de prueba.
-    	  - y_test:        datos y de prueba.
+        Función que presenta gráficamente la evolución del mse para
+        Fandom Forest en función de su profundidad.
+        Parámetros:
+          - profundidad:   profundidad máxima de Random Forest.
+          - n_estimadores: número de arboles a utilizar
+          - X_train:       datos X de entrenamiento.
+          - y_train:       datos y de entrenamiento.
+          - X_test:        datos X de prueba.
+          - y_test:        datos y de prueba.
     '''
     arreglo_mse=np.zeros(profundidad)
 
