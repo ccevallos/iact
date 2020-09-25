@@ -33,7 +33,7 @@
 				<td><input type="password" name="clave" required placeholder="Ingrese la clave" /></td>
 			</tr>
 			<tr class="lista">
-				<td>Clave usuario</td>
+				<td>Nombre del archivo CSV a generar</td>
 				<td><input type="text" name="nombreArchivo" required placeholder="Ingrese el nombre del archivo" value="demandaBDD.csv" /></td>
 			</tr>
 			<tr class="lista">

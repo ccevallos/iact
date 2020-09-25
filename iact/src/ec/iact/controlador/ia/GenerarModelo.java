@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ec.iact.modelo.Archivo;
+import ec.iact.util.Archivos;
 import ec.iact.util.Notebook;
 import ec.iact.util.Parametros;
 
@@ -66,8 +67,8 @@ public class GenerarModelo extends HttpServlet {
 		String svm = request.getParameter("svm");
 		String redNeuronal = request.getParameter("redNeuronal");
 		String ubicacionCarpeta = Parametros.UBICACION_INICIO + File.separator + caso + File.separator
-				+ Parametros.MODELO + File.separator;
-		String nombreArchivo = ubicacionCarpeta + nombreModelo + ".ipynb";
+				+ Parametros.MODELO;
+		String nombreArchivo = ubicacionCarpeta + File.separator + nombreModelo + ".ipynb";
 
 		// contador utilizado para generár la dimensión de entrada del modelo de red neuronal 
 		int numeroCabecerasDemanda = 0;
@@ -75,6 +76,8 @@ public class GenerarModelo extends HttpServlet {
 			// contador que se usa para enumerar los titulos markdown
 			int nroTitulo = 1;
 
+			Archivos.carpetaCreada(ubicacionCarpeta);
+			
 			File modelo = new File(nombreArchivo);
 			
 			// valida si el archivo existe
@@ -289,7 +292,7 @@ public class GenerarModelo extends HttpServlet {
 					}
 
 					// Genera código para evaluar los resultados del modelo entrenado
-					n.crearCodigo("df=evalua(y_test, y_pred, resultados, algoritmos)", "display(df)");
+					n.crearCodigo("df=evalua(y_test, resultados, algoritmos)", "display(df)");
 
 					i++;
 				}
@@ -298,6 +301,7 @@ public class GenerarModelo extends HttpServlet {
 
 		} catch (Exception e) {
 			request.setAttribute("error", "Error al obtener los datos del archivo");
+			e.printStackTrace();
 		}
 
 		// Genera mensaje de éxito y con un link del modelo para abrir con Jupyter Notebook.

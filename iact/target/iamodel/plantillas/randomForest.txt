@@ -4,4 +4,4 @@ y_pred = rFor.predict(X_test)
 resultados.append(y_pred)
 algoritmos.append('Random Forest')
 
-evolucion_random_forest(15, 50, X_train, y_train, y_test)
+evolucion_random_forest(15, 50, X_train, y_train, X_test, y_test)
